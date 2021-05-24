@@ -19,7 +19,7 @@ function cameraStart() {
 }
 async function getDevices() {
   const devices = await navigator.mediaDevices.enumerateDevices();
-  document.getElementById("demo").innerHTML = devices;
+  alert(devices);
 }
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {

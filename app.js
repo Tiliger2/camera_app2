@@ -17,6 +17,9 @@ function cameraStart() {
         console.error("Oops. Something is broken.", error);
     });
 }
+async function getDevices() {
+  const devices = await navigator.mediaDevices.enumerateDevices();
+}
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth;

@@ -27,7 +27,7 @@ cameraTrigger.onclick = function() {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);*/
-alert("sdfjnsdjn")
+
 val cameraId: String = ...
 val characteristics = cameraManager.getCameraCharacteristcs(cameraId)
 val capabalities = characteristics.get(

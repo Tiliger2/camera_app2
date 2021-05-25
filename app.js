@@ -17,9 +17,9 @@ function cameraStart() {
         console.error("Oops. Something is broken.", error);
     });
 }
-async function getDevices() {
-  const devices = await navigator.mediaDevices.enumerateDevices();
-  alert(devices);
+navigator.mediaDevices.enumerateDevices().then(function(devices) {
+
+    console.log(devices);
 }
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {
@@ -31,4 +31,3 @@ cameraTrigger.onclick = function() {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
-window.addEventListener("load", getDevices, false);

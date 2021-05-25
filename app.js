@@ -19,7 +19,22 @@ function cameraStart() {
 }
 navigator.mediaDevices.enumerateDevices().then(function(devices) {
 
-    console.log(devices);
+    var deviceToUse = "";
+        var deviceLabel = ""; //Used to check if permissions have been accepted, enumerateDevices() runs without needing to accept permissions
+        var isAndroid = false;
+        //For android phones
+        for(var i = 0; i < devices.length; i++){
+            deviceLabel = devices[i].label;
+
+            if(devices[i].kind === "videoinput"){
+                console.log(deviceLabel);
+                if(devices[i].label.includes("0")){
+                    deviceToUse = devices[i].deviceId;
+                    isAndroid = true;
+                    break;
+                }
+            }
+        }
 }
 // Take a picture when cameraTrigger is tapped
 cameraTrigger.onclick = function() {

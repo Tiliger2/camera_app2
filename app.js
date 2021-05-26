@@ -27,6 +27,8 @@ cameraTrigger.onclick = function() {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);*/
+console.log(5);
+debugger;
 (function myModule(){
     fun foo() = "Hello"
     /*val cameraId: String = ...

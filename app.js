@@ -27,18 +27,21 @@ cameraTrigger.onclick = function() {
 };
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);*/
-khbkjb
-//val cameraId: String = ...
-val characteristics = cameraManager.getCameraCharacteristcs(cameraId)
-val capabalities = characteristics.get(
-    CameraCharactaristics.REQUEST_AVAILABLE_CAPABILITIES)
-val isLogicalCamera = capabalities.contains(
-    CameraCharactaristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA)
+(function myModule(){
+    val cameraId: String = ...
+    val characteristics = cameraManager.getCameraCharacteristcs(cameraId)
+    val capabalities = characteristics.get(
+        CameraCharactaristics.REQUEST_AVAILABLE_CAPABILITIES)
+    val isLogicalCamera = capabalities.contains(
+        CameraCharactaristics.REQUEST_AVAILABLE_CAPABILITIES_LOGICAL_MULTI_CAMERA)
 
-if (isLogicalCamera){
-    val isLogicalCameraId = cameraId
+    if (isLogicalCamera){
+        val isLogicalCameraId = cameraId
 
-    val physicalCameras = characteristics.getPhysicalCameraIds()
+        val physicalCameras = characteristics.getPhysicalCameraIds()
 
 
-}
+    }
+}())
+
+console.log(myModule.isLogicalCamera)

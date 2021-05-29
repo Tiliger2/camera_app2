@@ -1,5 +1,5 @@
 // Set constraints for the video stream
-/*var constraints = { video: { facingMode: "user" }, audio: false };
+var constraints = { video: { facingMode: "environment" }, audio: false };
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
@@ -26,12 +26,16 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);*/
-console.log(5);
-debugger;
-(function myModule(){
+window.addEventListener("load", cameraStart, false);
+
+document.getElementById("more").onclick = function(){
+    document.getElementById("info").innerHTML = Camera.getNumberOfCameras();
+}
+
+
+/*(function myModule(){
     fun foo() = "Hello"
-    /*val cameraId: String = ...
+    val cameraId: String = ...
     val characteristics = cameraManager.getCameraCharacteristcs(cameraId)
     val capabalities = characteristics.get(
         CameraCharactaristics.REQUEST_AVAILABLE_CAPABILITIES)
@@ -44,7 +48,7 @@ debugger;
         val physicalCameras = characteristics.getPhysicalCameraIds()
 
 
-    }*/
+    }
 }())
 
-alert(myModule.foo());
+alert(myModule.foo());*/

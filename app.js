@@ -14,11 +14,12 @@ async function starter(){
         options.innerHTML += <li><button onclick=idsetter(d.deviceId)> d.label</button></li>
     }
 
-
-/*    const options = videoDevices.map(videoDevice => {
-        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
+    const opt = videoDevices.map(videoDevice => {
+        options.innerHTML += <li><button onclick=idsetter(videoDevice.deviceId)> videoDevice.label</button></li>;
+        return 0;
+//        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
     });
-  document.getElementById("info").innerHTML = options.join('');*/
+ // document.getElementById("info").innerHTML = options.join('');
 
 }
 options.innerHTML += </ul>

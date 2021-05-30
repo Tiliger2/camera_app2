@@ -10,9 +10,6 @@ options.innerHTML = <ul>
 async function starter(){
     var devices = await navigator.mediaDevices.enumerateDevices();
     const videoDevices = devices.filter(device => device.kind === 'videoinput');
-    for (d in videoDevices){
-        options.innerHTML += <li><button onclick=idsetter(d.deviceId)> d.label</button></li>
-    }
 
     const opt = videoDevices.map(videoDevice => {
         options.innerHTML += <li><button onclick=idsetter(videoDevice.deviceId)> videoDevice.label</button></li>;

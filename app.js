@@ -28,8 +28,14 @@ cameraTrigger.onclick = function() {
 // Start the video stream when the window loads
 window.addEventListener("load", cameraStart, false);
 
-document.getElementById("more").onclick = function(){
-    
+document.getElementById("more").onclick = async function(){
+    var devices = await navigator.mediaDevices.enumerateDevices();
+    const videoDevices = devices.filter(device => device.kind === 'videoinput');
+    const options = videoDevices.map(videoDevice => {
+        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
+    });
+  document.getElementById("info").innerHTML = options.join('');
+
 }
 
 

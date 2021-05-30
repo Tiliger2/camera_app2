@@ -29,7 +29,7 @@ cameraTrigger.onclick = function() {
 window.addEventListener("load", cameraStart, false);
 
 document.getElementById("more").onclick = function(){
-    document.getElementById("info").innerHTML = Camera.getNumberOfCameras();
+    
 }
 
 

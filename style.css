@@ -5,11 +5,11 @@ html, body{
   width: 100%;
 }
 #main{
-    height: 80%;
+    height: 800px;
 }
 #camera, #camera--view, #camera--sensor, #camera--output{
     position: fixed;
-    height: 80%;
+    height: 800px;
     width: 100%;
     object-fit: cover;
 }

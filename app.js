@@ -7,8 +7,8 @@ const cameraView = document.querySelector("#camera--view"),
 var videoin;
 
 options.innerHTML = <ul>
-async function starter(){
-    var devices = await navigator.mediaDevices.enumerateDevices();
+function starter(){
+    var devices = navigator.mediaDevices.enumerateDevices();
     const videoDevices = devices.filter(device => device.kind === 'videoinput');
 
     const opt = videoDevices.map(videoDevice => {

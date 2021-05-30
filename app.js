@@ -1,10 +1,38 @@
-// Set constraints for the video stream
-var constraints = { video: { facingMode: "environment" }, audio: false };
-// Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
+    options = document.getElementById("info")
+
+var videoin;
+
+options.innerHTML = <ul>
+async function starter(){
+    var devices = await navigator.mediaDevices.enumerateDevices();
+    const videoDevices = devices.filter(device => device.kind === 'videoinput');
+    for (d in videoDevices){
+        options.innerHTML += <li><button onclick=idsetter(d.deviceId)> d.label</button></li>
+    }
+
+
+/*    const options = videoDevices.map(videoDevice => {
+        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
+    });
+  document.getElementById("info").innerHTML = options.join('');*/
+
+}
+options.innerHTML += </ul>
+
+
+// Set constraints for the video stream
+
+// Define constants
+
+function idsetter(id){
+    var constraints = { video: { deviceId: id }, audio: false };
+    cameraStart();
+}
+
 // Access the device camera and stream to cameraView
 function cameraStart() {
     navigator.mediaDevices
@@ -26,17 +54,8 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 // Start the video stream when the window loads
-window.addEventListener("load", cameraStart, false);
+window.addEventListener("load", starter, false);
 
-document.getElementById("more").onclick = async function(){
-    var devices = await navigator.mediaDevices.enumerateDevices();
-    const videoDevices = devices.filter(device => device.kind === 'videoinput');
-    const options = videoDevices.map(videoDevice => {
-        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
-    });
-  document.getElementById("info").innerHTML = options.join('');
-
-}
 
 
 /*(function myModule(){

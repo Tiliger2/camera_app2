@@ -2,11 +2,10 @@ const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
-    options = document.getElementById("info")
+    options = document.getElementById("options")
 
 var videoin;
 
-options.innerHTML = <ul>
 function starter(){
     var devices = navigator.mediaDevices.enumerateDevices();
     const videoDevices = devices.filter(device => device.kind === 'videoinput');
@@ -19,7 +18,7 @@ function starter(){
  // document.getElementById("info").innerHTML = options.join('');
 
 }
-options.innerHTML += </ul>
+
 
 
 // Set constraints for the video stream

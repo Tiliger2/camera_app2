@@ -11,7 +11,7 @@ function starter(){
     const videoDevices = devices.filter(device => device.kind === 'videoinput');
 
     const opt = videoDevices.map(videoDevice => {
-        options.innerHTML += <li><button onclick="idsetter(videoDevice.deviceId)"> videoDevice.label</button></li>;
+        options.innerHTML += '<li><button onclick="idsetter(' + videoDevice.deviceId + ')">' + videoDevice.label + '</button></li>';
         return 0;
 //        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
     });

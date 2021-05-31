@@ -4,17 +4,29 @@ const cameraView = document.querySelector("#camera--view"),
     cameraTrigger = document.querySelector("#camera--trigger")
     options = document.getElementById("options")
 
-var videoin;
-
 function starter(){
-    var devices = navigator.mediaDevices.enumerateDevices();
-    const videoDevices = devices.filter(device => device.kind === 'videoinput');
+    var txt = ""
 
-    const opt = videoDevices.map(videoDevice => {
-        options.innerHTML += '<li><button onclick="idsetter(' + videoDevice.deviceId + ')">' + videoDevice.label + '</button></li>';
-        return 0;
-//        return `<option value="${videoDevice.deviceId}">${videoDevice.label}</option>`;
+    navigator.mediaDevices.enumerateDevices()
+    .then(function(devices) {
+      devices.forEach(function(device) {
+        console.log(device.kind + ": " + device.label +
+                    " id = " + device.deviceId);
+        if (device.kind == "videoinput"){
+            console.log(device.kind + ": " + device.label +
+                    " id = " + device.deviceId);
+            txt += '<li><button onclick="idsetter(' + device.deviceId +
+            ')">' + device.label + "</button></li>";
+        }
+        })
+        console.log(txt);
+        options.innerHTML = txt;   
+    })
+    .catch(function(err) {
+        console.log(err.name + ": " + err.message);
     });
+   
+    
  // document.getElementById("info").innerHTML = options.join('');
 
 }
@@ -51,7 +63,9 @@ cameraTrigger.onclick = function() {
     cameraOutput.classList.add("taken");
 };
 // Start the video stream when the window loads
-window.addEventListener("load", starter, false);
+document.getElementById("starting").onclick = function(){
+    starter();
+}
 
 
 

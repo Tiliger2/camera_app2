@@ -15,7 +15,7 @@ html, body{
     transform: scaleX(1);
     filter: FlipH;
 }*/
-#camera--trigger{
+#camera--trigger, #starting{
     width: 200px;
     background-color: black;
     color: white;
@@ -28,6 +28,9 @@ html, body{
     position: fixed;
     bottom: 30px;
     left: calc(50% - 100px);
+}
+#starting{
+    bottom:90px;
 }
 
 .taken{

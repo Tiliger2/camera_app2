@@ -38,6 +38,7 @@ function starter(){
 // Define constants
 
 function idsetter(id){
+    console.log(id);
     var constraints = { video: { deviceId: id }, audio: false };
     cameraStart();
 }

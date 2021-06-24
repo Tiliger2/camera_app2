@@ -3,9 +3,9 @@ const cameraView = document.querySelector("#camera--view"),
     cameraSensor = document.querySelector("#camera--sensor"),
     cameraTrigger = document.querySelector("#camera--trigger")
     options = document.getElementById("options")
-
+/*
 function starter(){
-    var txt = ""
+    var txt = ''
 
     navigator.mediaDevices.enumerateDevices()
     .then(function(devices) {
@@ -15,12 +15,12 @@ function starter(){
         if (device.kind == "videoinput"){
             console.log(device.kind + ": " + device.label +
                     " id = " + device.deviceId);
-            txt += '<li><button onclick="idsetter(' + device.deviceId +
-            ')">' + device.label + "</button></li>";
+            txt = '<li><button onclick="myFunc(this)">' + device.label + "</button></li>";
         }
         })
         console.log(txt);
-        options.innerHTML = txt;   
+        //options.innerHTML = txt;
+          
     })
     .catch(function(err) {
         console.log(err.name + ": " + err.message);
@@ -31,18 +31,27 @@ function starter(){
 
 }
 
+console.log(366566)
 
+function myFunc(but){
+    but.innerHTML = "opp";
+    but.style.backgroundColor = "green";
+}
 
 // Set constraints for the video stream
 
 // Define constants
 
-function idsetter(id){
+function idsetter(id, but){
+    but.style = "background-color : green;";
     console.log(id);
     var constraints = { video: { deviceId: id }, audio: false };
     cameraStart();
 }
+*/
 
+
+var constraints = { video: { deviceId: "0ea60d4903810eecd640778c6dab7453fd35f442e6f6b1e1168605b0afa2e2fc" }, audio: false };
 // Access the device camera and stream to cameraView
 function cameraStart() {
     navigator.mediaDevices
@@ -60,12 +69,20 @@ cameraTrigger.onclick = function() {
     cameraSensor.width = cameraView.videoWidth;
     cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
-    cameraOutput.src = cameraSensor.toDataURL("image/webp");
+    cameraOutput.src = cameraSensor.toDataURL("image/jpeg");
     cameraOutput.classList.add("taken");
+    cameraOutput.href = cameraOutput.src;
+
+    var link = document.getElementById('link');
+    link.setAttribute('download', 'MintyPaper.png');
+    link.setAttribute('href', cameraSensor.toDataURL("image/png").replace("image/png", "image/octet-stream"));
+    link.click();
 };
+
+
 // Start the video stream when the window loads
 document.getElementById("starting").onclick = function(){
-    starter();
+    cameraStart();   
 }
 
 
